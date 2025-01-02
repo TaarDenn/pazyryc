@@ -1,11 +1,13 @@
 import useObserver from "../hooks/useObserver";
 import { constrainAndMap } from "../lib/lib";
-import { useRef } from "react";
+// import { useRef } from "react";
 export default function Farsh() {
   const { ref, progress } = useObserver();
-  const reff = useRef(null);
+
   const a = `${(100 - constrainAndMap(progress, 0, 1) * 80).toFixed(4)}%`;
   const x = `${100 - constrainAndMap(progress, 0.3, 0.65) * 100}%`;
+
+  // const reff = useRef(null);
   //   console.log(
   //     Math.abs(
   //       reff?.current?.getBoundingClientRect().x /
@@ -14,7 +16,10 @@ export default function Farsh() {
   //   );
 
   return (
-    <div ref={reff} className="bg-black/70 w-[200vw] h-full">
+    <div
+      // ref={reff}
+      className="bg-black/70 w-[200vw] h-full"
+    >
       <div className="w-full h-full relative">
         <div ref={ref} className="absolute w-[50%] left-[50%] h-full"></div>
         <div className="sticky h-full w-[100vw] max-w-[900px] left-0">

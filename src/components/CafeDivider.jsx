@@ -49,25 +49,24 @@ export default function CafeDivider() {
             className="absolute left-0 top-0 flex"
           >
             {Array.from({ length: col }).map((_, i) => (
-              <div>
+              <div key={`col-${i}`}>
                 {Array.from({ length: row }).map((_, j) => (
-                  <>
-                    <div
-                      className="w-full"
-                      style={{
-                        height: `${(height - 144) / row}px`,
-                        width: `${(height - 144) / row}px`,
-                        opacity: 1 - i / col,
-                      }}
-                    >
-                      {(i * col + j) % 2 === 0 && i <= j && (
-                        <img
-                          src="./assets/patern3-white.svg"
-                          className="w-full h-full"
-                        />
-                      )}
-                    </div>
-                  </>
+                  <div
+                    key={`row-${i}-${j}`}
+                    className="w-full"
+                    style={{
+                      height: `${(height - 144) / row}px`,
+                      width: `${(height - 144) / row}px`,
+                      opacity: 1 - i / col,
+                    }}
+                  >
+                    {(i * col + j) % 2 === 0 && i <= j && (
+                      <img
+                        src="./assets/patern3-white.svg"
+                        className="w-full h-full"
+                      />
+                    )}
+                  </div>
                 ))}
               </div>
             ))}
