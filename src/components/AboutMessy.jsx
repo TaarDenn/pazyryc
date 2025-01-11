@@ -8,7 +8,7 @@ export default function AboutMessy() {
   const mappedBannerProgress = constrainAndMap(bannerProgress, 0.5, 1) * 2;
 
   return (
-    <div dir="rtl" ref={frame} className="w-[200vw] h-full">
+    <div dir="rtl" ref={frame} className="w-[200vw] h-[100svh]">
       <div
         style={{ opacity: frameProgress * 2 }}
         className="relative h-full w-full"

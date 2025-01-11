@@ -1,4 +1,4 @@
-import { useWindowSize } from "../hooks/useWinowsize";
+import useWindowSize from "../hooks/useWinowsize";
 import useObserver from "../hooks/useObserver";
 import { constrainAndMap } from "../lib/lib";
 
@@ -17,7 +17,10 @@ export default function Pattern1() {
   })();
 
   return (
-    <div ref={ref} className="relative bg-red-100 w-[50vw] h-[100dvh] pt-24 pb-8">
+    <div
+      ref={ref}
+      className="relative bg-red-100 w-[50vw] h-[100dvh] pt-24 pb-8"
+    >
       {/* bg */}
       <div
         id="pattern-1-bg"

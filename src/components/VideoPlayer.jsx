@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+
 export default function VideoPlayer() {
   const [sourceIndex, setSourceIndex] = useState(0);
 
@@ -13,7 +14,7 @@ export default function VideoPlayer() {
   };
 
   return (
-    <div className="z-1 fixed top-0 w-full h-[100dvh] bg-black">
+    <div className="z-1 fixed top-0 w-full h-[100svh] bg-black">
       <video
         preload="auto"
         onEnded={handleSource}

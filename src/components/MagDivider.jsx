@@ -1,5 +1,3 @@
-// import { useState, useEffect, useLayoutEffect, useRef, useMemo } from "react";
-import { useWindowSize } from "../hooks/useWinowsize";
 import useObserver from "../hooks/useObserver";
 import { constrainAndMap } from "../lib/lib";
 
@@ -14,17 +12,6 @@ import { constrainAndMap } from "../lib/lib";
 export default function BrandDivider() {
   const { progress: inset, ref: patternContainerRef } = useObserver();
   const { progress: opacity, ref: textContainerRef } = useObserver();
-
-  const { height, width } = useWindowSize();
-
-  const row = 5;
-  const col = (() => {
-    if (width < 600) return 3;
-    else if (width < 720) return 5;
-    else if (width < 1024) return 5;
-    else if (width < 1440) return 5;
-    else return 7;
-  })();
 
   return (
     <div
@@ -42,38 +29,23 @@ export default function BrandDivider() {
       </div>
       {/* bg */}
       <div className="w-full h-full flex">
-        <div className="sticky left-2 relative w-1/3" id="pattern-container">
+        <div className="sticky left-2 relative w-full" id="pattern-container">
           <div
             style={{
               opacity: 1 - constrainAndMap(opacity, 0.5, 1),
               clipPath: `inset(0 ${
                 100 - constrainAndMap(inset, 0, 0.5) * 100
-              }% 0 0 round 1000px)`,
+              }% 0 0 round 0 1000px 1000px 0)`,
             }}
-            className="absolute left-0 top-0 flex"
+            className="absolute left-0 top-0 flex h-full"
           >
-            {Array.from({ length: col }).map((_, i) => (
-              <div key={`col-${i}`}>
-                {Array.from({ length: row }).map((_, j) => (
-                  <div
-                    key={`row-${i}-${j}`}
-                    className="w-full px-4"
-                    style={{
-                      height: `${(height - 144) / row}px`,
-                      width: `${(height - 144) / row}px`,
-                      opacity: 1 - i / col,
-                    }}
-                  >
-                    {(i * col + j) % 2 === 0 && (
-                      <img
-                        src="./assets/patern3-white.svg"
-                        className="w-full h-full"
-                      />
-                    )}
-                  </div>
-                ))}
-              </div>
-            ))}
+            <div aria-hidden="true" className="w-full h-full">
+              <img
+                src="./assets/patern-black-corrected.svg"
+                className="w-full h-full object-cover"
+                alt="pattern"
+              />
+            </div>
           </div>
         </div>
         <div

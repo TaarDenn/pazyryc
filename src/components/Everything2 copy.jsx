@@ -1,5 +1,5 @@
 // import { useState, useEffect, useLayoutEffect, useRef, useMemo } from "react";
-import { useWindowSize } from "../hooks/useWinowsize";
+import useWindowSize from "../hooks/useWinowsize";
 import useObserver from "../hooks/useObserver";
 import { constrainAndMap } from "../lib/lib";
 

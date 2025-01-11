@@ -1,8 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import VideoPlayer from "./components/VideoPlayer";
 import CafeDivider from "./components/CafeDivider";
 import Navbar from "./components/Navbar";
-import Farsh from "./components/Farsh";
+import Carpet from "./components/Carpet";
 import Brands from "./components/Brands";
 import Cafe from "./components/Cafe";
 import CarpetDivider from "./components/CarpetDivider";
@@ -10,11 +10,17 @@ import About from "./components/About";
 import Mag from "./components/Mag";
 import MagDivider from "./components/MagDivider";
 import Footer from "./components/Footer";
-// import Divider from "./components/Divider";
-// import Pattern1 from "./components/Pattern1";
+import First from "./components/First";
+import useWindowSize from "./hooks/useWinowsize";
 
 import BrandDivider from "./components/BrandDivider";
 export default function App() {
+  const [scrollPercent, setScrollPercent] = useState(0);
+
+  const { width } = useWindowSize();
+
+  const scrollable = useRef();
+
   useEffect(() => {
     const container = document.getElementById("main");
     const itemToScroll = document.getElementById("scrollable");
@@ -23,12 +29,17 @@ export default function App() {
       if (Math.abs(e.deltaY) > 0) {
         e.preventDefault();
         itemToScroll.scrollLeft += e.deltaY;
+        setScrollPercent(itemToScroll.scrollLeft / itemToScroll.scrollWidth);
       }
     };
 
     container.addEventListener("wheel", scroll);
     return () => container.removeEventListener("wheel", scroll);
   }, []);
+
+  useEffect(() => {
+    scrollable.current.scrollLeft = scrollPercent * width * 18.5;
+  }, [width]);
 
   useEffect(() => {
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -50,16 +61,15 @@ export default function App() {
       <Navbar />
       <VideoPlayer />
       <div
+        ref={scrollable}
         id="scrollable"
         className="overflow-y-hidden relative z-10 h-full w-full overflow-x-scroll "
       >
         <div id="section-container" className="w-[1850vw] h-full flex">
-          <div className="w-[100vw] h-full flex items-end justify-end text-white text-4xl p-8 ">
-            <div className="animate-ping"><img src="assets/arrow.svg" width={100}/></div>
-          </div>
+          <First />
           <About />
           <CarpetDivider />
-          <Farsh />
+          <Carpet />
           <BrandDivider />
           <Brands />
           <CafeDivider />
@@ -67,7 +77,11 @@ export default function App() {
           <MagDivider />
           <Mag />
           <Footer />
-          <div className="w-[50vw] h-full flex items-end justify-end text-white bg-zinc-900/70 text-4xl p-8 "></div>
+          <div className="w-[50vw]  h-full flex items-center justify-center text-white bg-zinc-900/70">
+            <a className="text-2xl md:text-4xl cursor-pointer" href="#start">
+              برگشت به اول
+            </a>
+          </div>
         </div>
       </div>
     </main>

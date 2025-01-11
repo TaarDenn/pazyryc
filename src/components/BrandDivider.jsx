@@ -1,5 +1,4 @@
-// import { useState, useEffect, useLayoutEffect, useRef, useMemo } from "react";
-import { useWindowSize } from "../hooks/useWinowsize";
+import useWindowSize from "../hooks/useWinowsize";
 import useObserver from "../hooks/useObserver";
 import { constrainAndMap } from "../lib/lib";
 
@@ -20,8 +19,6 @@ export default function BrandDivider() {
   const row = 5;
   const col = (() => {
     if (width < 600) return 3;
-    else if (width < 720) return 5;
-    else if (width < 1024) return 5;
     else if (width < 1440) return 5;
     else return 7;
   })();

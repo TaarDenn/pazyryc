@@ -5,7 +5,7 @@
   "type": "module",
   "homepage": "https://taardenn.github.io/pazyryc/",
   "scripts": {
-    "predeploy": "pnpm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",

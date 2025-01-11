@@ -1,11 +1,11 @@
 import useObserver from "../hooks/useObserver";
 import { constrainAndMap } from "../lib/lib";
 // import { useRef } from "react";
-export default function Farsh() {
+export default function Carpet() {
   const { ref, progress } = useObserver();
 
-  const a = `${(100 - constrainAndMap(progress, 0, 1) * 80).toFixed(4)}%`;
-  const x = `${100 - constrainAndMap(progress, 0.3, 0.65) * 100}%`;
+  const carpety = `${(100 - constrainAndMap(progress, 0, 1) * 60).toFixed(4)}%`;
+  const bgy = `${100 - constrainAndMap(progress, 0.3, 0.65) * 100}%`;
 
   // const reff = useRef(null);
   //   console.log(
@@ -24,7 +24,7 @@ export default function Farsh() {
         <div ref={ref} className="absolute w-[50%] left-[50%] h-full"></div>
         <div className="sticky h-full w-[100vw] max-w-[900px] left-0">
           <div
-            style={{ transform: `translate(0px,${x})` }}
+            style={{ transform: `translate(0px,${bgy})` }}
             className="absolute h-full w-full max-w-[900px] bg-emerald-900 -z-10"
           ></div>
           <div className="w-full sm:w-1/2 pt-24 px-4 pb-4 sm:right-10 z-30">
@@ -41,10 +41,10 @@ export default function Farsh() {
             <p className="text-white text-2xl w-[300px] py-2 border-b-2 border-x-2 border-t-8 border-white text-center">
               گبه / جاجیم
             </p>
-            <div className="absolute left-0 top-0 center w-4/5 h-full min-w-[320px] max-w-[800px] mix-blend-lighten">
+            <div className="absolute left-0 top-0 center w-4/5 h-full min-w-[340px] max-w-[800px] mix-blend-lighten">
               <img
-                style={{ transform: `translate(0px,${a})` }}
-                src="./imgs/pazyryk-carpet.jpg"
+                style={{ transform: `translate(0px,${carpety})` }}
+                src="./imgs/pazyryk-carpet-low.webp"
                 className="w-full h-full object-top object-contain sm:object-cover"
               />
             </div>

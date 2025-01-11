@@ -1,4 +1,5 @@
 import useObserver from "../hooks/useObserver";
+
 export default function Footer() {
   const { ref, progress } = useObserver();
 
@@ -19,24 +20,22 @@ export default function Footer() {
               <img
                 src="assets/pazyryc-logo.svg"
                 alt="logo"
-                className="w-full h-full object-center object-contain p-2"
+                className="w-full h-full object-center object-contain p-4 sm:p-16"
               />
             </div>
           </div>
           <div className="basis-1/2 text-white">
             <p className="p-4 border-b-2">ساعات کاری</p>
-            <div className="flex flex-col w-full h-full items-center justify-center">
+            <div className="text-sm flex flex-col w-full h-full items-center justify-center">
               <WorkHour progress={progress} />
               <div>
-                <p className="w-full pt-8">شنبه تا چهارشنبه</p>
-                <p className="border-b-2 pt-2 w-full text-center">
-                  12:00 - 8:00
+                <p className="text-center w-full pt-4 border-b-[1px] pb-1">
+                  شنبه تا چهارشنبه
                 </p>
-
-                <p className="w-full pt-8 text-center">پنج شنبه</p>
-                <p className="pt-2 border-b-2 text-center">12:00 - 8:00</p>
-                <p className="w-full pt-8 text-center">جمعه‌ها</p>
-                <p className="pt-2 border-b-2 text-center">12:00 - 8:00</p>
+                <p className="text-center w-full pt-4 border-b-[1px] pb-1">پنج شنبه</p>
+                <p className="text-center">12:00 - 8:00</p>
+                <p className="text-center w-full pt-4 border-b-[1px] pb-1">جمعه‌ها</p>
+                <p className="text-center">12:00 - 8:00</p>
               </div>
             </div>
           </div>

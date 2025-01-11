@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useWindowSize } from "../hooks/useWinowsize";
+import useWindowSize from "../hooks/useWinowsize";
 import useObserver from "../hooks/useObserver";
 import { constrainAndMap } from "../lib/lib";
 
@@ -44,10 +44,7 @@ export default function Everything({ offset }) {
         <div className="basis-1/2 bg-black/70"></div>
       </div>
       <div className="relative z-20 w-full h-1/2">
-        <div
-          ref={grid}
-          className="px-[8px] flex gap-[8px] w-full"
-        >
+        <div ref={grid} className="px-[8px] flex gap-[8px] w-full">
           {Array.from({ length: col }).map((_, i) => (
             <div
               key={"g" + i}

@@ -1,7 +1,7 @@
 import useObserver from "../hooks/useObserver";
 // import { constrainAndMap } from "../lib/lib";
 import { useLayoutEffect, useRef, useState } from "react";
-import { useWindowSize } from "../hooks/useWinowsize";
+import useWindowSize from "../hooks/useWinowsize";
 
 export default function About() {
   const { ref: frame, progress: frameProgress } = useObserver();
@@ -20,7 +20,7 @@ export default function About() {
   }, [height, width]);
 
   return (
-    <div dir="rtl" ref={frame} className="w-[200vw] h-full">
+    <div dir="rtl" ref={frame} className="w-[200vw] h-[100svh]">
       <div
         style={{ opacity: frameProgress * 2 }}
         className="relative h-full w-full"

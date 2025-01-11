@@ -20,6 +20,5 @@ export default function useObserver() {
     }
   }, [entry]);
 
-  console.log(progress);
   return { ref, progress };
 }
